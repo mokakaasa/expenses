@@ -37,8 +37,8 @@ class ExpensescategoryController extends Controller
 
         if ($expensescategory->load(Yii::$app->request->post()) && $expensescategory->validate()) {
             if ($expensescategory->createNewExpensesCategory()) {
-                Yii::$app->session->setFlash('EXPENSESCATEGORY');
-                return $this->redirect('new-expenses-category');
+                Yii::$app->session->setFlash('EXPENSE(s) CATEGORY');
+                return $this->redirect('expenses-category');
             }
         }
 
@@ -67,7 +67,6 @@ class ExpensescategoryController extends Controller
 
     public function actionView($id)
     {
-
         $expensescategory = Expensescategory::findOne($id);
 
         return $this->render('viewexpensescategory', ['expensescategory' => $expensescategory, 'id' => $id]);
@@ -108,5 +107,13 @@ class ExpensescategoryController extends Controller
         $expensescategory=Expensescategory::findOne($id);
         $expensescategory->delete();
         return $this->redirect(['deleted-item', 'id' =>  $expensescategory->id]);
+    }
+    public function actionReversal($id)
+    {
+        $expensescategory = Expensescategory::findOne($id);
+
+        if ( $expensescategory->createreverse()) {
+            return $this->redirect(['expenses-category', 'id' =>  $expensescategory->id]);
+        }
     }
 }

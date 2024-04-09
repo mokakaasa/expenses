@@ -47,10 +47,8 @@ $this->params['breadcrumbs'][] = $this->title;
                         return Html::a('View  Expenses' , ['/expenses/view', 'id' => $expenses->id,], ['class' => 'btn btn-info']);
                     },
                     'delete' => function ($url, $expenses, $key) {
-                        return Html::a('Delete  Expenses' , $url, ['class' => 'btn btn-info']);
+                        return Html::a('Delete  Expenses' ,  ['/expenses/delete', 'id' => $expenses->id,], ['class' => 'btn btn-info']);
                     }
-
-
                 ],
             ],
             [

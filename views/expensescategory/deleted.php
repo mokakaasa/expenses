@@ -34,16 +34,16 @@ $this->params['breadcrumbs'][] = $this->title;
                 'header' => 'Actions',
                 'format' => 'raw',
                 'value' => function ($expensescategory ) {
-                    $buttons=Html::a( 'RETURN PRODUCT', ['/pos/product', 'id' => $expensescategory ->id,],
+                    $buttons=Html::a( 'RETURN THIS EXPENSE CATEGORY ', ['/expensescategory/reversal', 'id' => $expensescategory->id,],
                         [
-                            'title' => 'Update my To_Do List',
+                            'title' => 'Return this expense category',
                             'class' => 'btn btn-edit',
                             'data-method'  => 'POST',
                             'data-params'  => ['id' => $expensescategory ->id ],]);
 
-                    $buttons.=Html::a('DELETE PRODUCT PERMANENTLY' , ['/expensescategory/permanently-delete-item', 'id' => $expensescategory ->id,],
+                    $buttons.=Html::a('DELETE THIS EXPENSE(s) CATEGORY PERMANENTLY' , ['/expensescategory/permanently-delete-item', 'id' => $expensescategory ->id,],
                         [
-                            'title' => 'Delete Product',
+                            'title' => 'Delete this expense category',
                             'class' => 'btn btn-danger',
                             'data-confirm' => "Are you sure you want to permanently delete this task?",
                             'data-method'  => 'POST',

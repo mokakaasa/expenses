@@ -19,7 +19,7 @@ use yii\data\Pagination;
 $this->title = 'LIST OF ALL EXPENSE(s) CATEGORY';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<?php if (Yii::$app->session->hasFlash('EXPENSESCATEGORY')):?>
+<?php if (Yii::$app->session->hasFlash('EXPENSE(S) CATEGORY')):?>
 
     <div class="alert alert-success">
         'A NEW EXPENSE(s) CATEGORY RECORD WAS CREATED SUCCESSFULLY'

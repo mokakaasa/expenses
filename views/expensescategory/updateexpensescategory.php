@@ -7,17 +7,15 @@ use yii\widgets\ActiveForm;
 /** @var app\models\Expensescategory $expensescategory */
 /** @var yii\widgets\ActiveForm $form */
 ?>
-<?php if (Yii::$app->session->hasFlash('EXPENSESCATEGORY')): ?>
+<?php if (Yii::$app->session->hasFlash('EXPENSE(s) CATEGORY UPDATE')): ?>
 
     <div class="alert alert-success">
-        'A NEW EXPENSE(s) CATEGORY RECORD WAS CREATED SUCCESSFULLY'
+        'EXPENSE(s) CATEGORY RECORD WAS UPDATED SUCCESSFULLY'
     </div>
 
 <?php endif; ?>
 
-<div class="new-product">
-
-
+<div class="new-expense">
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($expensescategory, 'description')->textarea(['rows' => 2]) ?>

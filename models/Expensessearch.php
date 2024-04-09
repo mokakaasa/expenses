@@ -75,11 +75,12 @@ class Expensessearch extends Expenses
         $this->load($params);
         // grid filtering conditions
         $query->andFilterWhere([
+            'id' => $params['id'] ?? null,
             'unit_price' => $this->unit_price,
             'quantity' => $this->quantity,
             'amount' => $this->amount,
             'expensedate' => $this->expensedate,
-            'is_deleted' => 0,
+            'is_deleted' => 1,
         ]);
         return $expensesdataProvider;
     }

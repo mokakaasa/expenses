@@ -1,8 +1,11 @@
 <?php
 
 namespace app\models;
+
 use Yii;
 use yii\db\ActiveRecord;
+use \common\traits\base\BeforeQueryTrait;
+use \common\traits\SoftDeleteBoolTrait;
 
 class Expensescategory extends ActiveRecord
 {
@@ -22,8 +25,8 @@ class Expensescategory extends ActiveRecord
     public function attributeLabels()
     {
         return [
-            'name' => 'Expenses Name',
-            'description' => 'Expenses Description',
+            'name' => 'Expense(s) Category Name',
+            'description' => 'Expense(s) Category Description',
         ];
     }
 
@@ -39,13 +42,21 @@ class Expensescategory extends ActiveRecord
 
     public function createUpdate()
     {
-        $this->description  ;
+        $this->description;
         return $this->save();
     }
 
     public function createsoftDelete()
     {
         $this->is_deleted = 1;
-        return  $this->save(false);
+        return $this->save(false);
     }
+
+    public function createreverse()
+    {
+        $this->is_deleted=0;
+        return $this->save(false);
+    }
+
+
 }

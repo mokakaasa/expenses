@@ -41,4 +41,22 @@ class Expenses extends ActiveRecord
         return $this->save() ;
     }
 
+    public function createUpdate()
+    {
+        $this->quantity;
+        $this->unit_price;
+        $this->expensedate;
+        return $this->save() ;
+    }
+
+    public function createsoftDelete()
+    {
+        $this->is_deleted = 1;
+        return  $this->save(false);
+    }
+    public function createreverse()
+    {
+        $this->is_deleted=0;
+        return $this->save(false);
+    }
 }

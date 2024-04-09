@@ -37,6 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $model->expensescategory->name;
                 },
             ],
+        'quantity',
         'unit_price',
         'amount',
         'expensedate',
