@@ -115,7 +115,7 @@ class ExpensesController extends Controller
         $expenses= Expenses::findOne($id);
 
         if ( $expenses->createreverse()) {
-            return $this->redirect(['expenses', 'id' =>  $expenses->id]);
+            return $this->redirect(['expenses-category', 'id' =>  $expenses->id]);
         }
     }
 }

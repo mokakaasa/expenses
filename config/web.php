@@ -19,6 +19,16 @@ $config = [
             'datetimeFormat' => 'yyyy-MM-dd HH:mm:ss',
             'timeZone' => 'Africa/Dar_es_Salaam', // Set the timezone here
         ],
+        'container' => [
+            'class' => 'yii\di\Container',
+            'definitions' => [
+                \yii\widgets\LinkPager::class => \yii\bootstrap5\LinkPager::class,
+                'yii\bootstrap5\LinkPager' => [
+                    'firstPageLabel' => 'First',
+                    'lastPageLabel' => 'Last'
+                ]
+            ]
+        ],
 
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation

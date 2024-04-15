@@ -34,6 +34,11 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= GridView::widget([
         'dataProvider' => $expensesdataProvider,
+        'pager' => [
+            'class' => 'yii\bootstrap5\LinkPager',
+            'firstPageLabel' => 'First',
+            'lastPageLabel' => 'Last'
+        ],
         'columns' => [
             ['class' => 'yii\grid\ActionColumn',
                 'header' => 'Actions',

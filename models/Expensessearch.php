@@ -42,9 +42,7 @@ class Expensessearch extends Expenses
         $query = Expenses::find();
         $expensesdataProvider = new ActiveDataProvider([
             'query' => $query,
-            'pagination' => array(
-                'pageSize' => 10,
-            ),
+            'pagination' => array('pageSize' => 5),
         ]);
 
 

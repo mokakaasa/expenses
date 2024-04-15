@@ -28,7 +28,7 @@ class ExpensescategorySearch extends Expensescategory
 
         $expensescategorydataProvider= new ActiveDataProvider([
             'query'=>$query,
-            'pagination'=>array('pageSize'=>10,),]);
+            'pagination'=>array('pageSize'=>5),]);
 
         $this->load($params);
 
