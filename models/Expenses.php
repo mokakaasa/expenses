@@ -35,7 +35,10 @@ class Expenses extends ActiveRecord
     {
       return $this->hasOne(Expensescategory::class,['id'=>'expense_category_id']) ;
     }
-
+    public function createExpenses()
+    {
+        return $this->save() ;
+    }
     public function createNewExpenses()
     {
         return $this->save() ;

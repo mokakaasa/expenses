@@ -17,7 +17,7 @@ use yii\data\Pagination;
 /** @var yii\data\ActiveDataProvider $pagination */
 
 
-$this->title = 'LIST OF ALL DELETED EXPENSE(s) CATEGORIES';
+$this->title = 'LIST OF ALL DELETED EXPENSE(s)';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 

@@ -34,6 +34,11 @@ class Expensescategory extends ActiveRecord
     {
         return $this->hasMany(Expenses::class, ['expense_category_id' => 'id']);
     }
+    public function createExpensesCategory()
+    {
+
+        return $this->save();
+    }
 
     public function createNewExpensesCategory()
     {
@@ -57,6 +62,5 @@ class Expensescategory extends ActiveRecord
         $this->is_deleted=0;
         return $this->save(false);
     }
-
 
 }
