@@ -37,10 +37,12 @@ class Expenses extends ActiveRecord
     }
     public function createExpenses()
     {
+        $this->amount=$this->quantity * $this->unit_price;
         return $this->save() ;
     }
     public function createNewExpenses()
     {
+        $this->amount=$this->quantity * $this->unit_price;
         return $this->save() ;
     }
 
@@ -48,7 +50,8 @@ class Expenses extends ActiveRecord
     {
         $this->quantity;
         $this->unit_price;
-        $this->expensedate;
+        $this->expensedate ;
+        $this->amount=$this->quantity * $this->unit_price;
         return $this->save() ;
     }
 

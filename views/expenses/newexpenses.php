@@ -28,11 +28,22 @@ use yii\widgets\ActiveForm;
             ArrayHelper::map(\app\models\Expensescategory::find()->all(),'id','name'),
         ['prompt'=>"Expense's Name"]
     ) ?>
-    <?= $form->field($expenses, 'unit_price')->textInput(['type' => 'number']) ?>
-    <?= $form->field($expenses, 'quantity')->textInput(['type' => 'number']) ?>
-    <?= $form->field($expenses, 'amount')->textInput(['type' => 'number']) ?>
+    <?= $form->field($expenses, 'unit_price')->textInput(['type' => 'number', 'id' => 'unit_price', 'onkeyup' => "getAmount()"]) ?>
+    <?= $form->field($expenses, 'quantity')->textInput(['type' => 'number', 'id' => 'quantity', 'onkeyup' => "getAmount()"]) ?>
+    <?= $form->field($expenses, 'amount')->textInput(['type' => 'number', 'readonly' => true, 'id' => 'amount']) ?>
     <?= $form->field($expenses, 'expensedate')->widget(\yii\jui\DatePicker::class, []) ?>
 
+    <script>
+        const getAmount = () => {
+            const quantityField = document.getElementById('quantity');
+            const unitPriceField = document.getElementById('unit_price');
+            const amountField = document.getElementById('amount');
+
+            if (Number(quantityField.value) && Number(unitPriceField.value)) {
+                amountField.value = Number(quantityField.value) * Number(unitPriceField.value);
+            }
+        }
+    </script>
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>
